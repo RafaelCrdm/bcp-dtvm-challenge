@@ -150,9 +150,12 @@ class DebentureProcessor:
         :param dataframe: DataFrame csv.
         """
 
-        with open(self.output_file, 'w', encoding='latin1') as f:
-            f.writelines(self.header_lines)
-            f.write("\n")
+        ### Remover esse bloco que está comentado acaba com o problema do cabeçalho e,
+        # consequentemente, talvez acabe com o problema em relação ao powerBI
+        
+        # with open(self.output_file, 'w', encoding='latin1') as f:
+        #     f.writelines(self.header_lines)
+        #     f.write("\n")
         dataframe.to_csv(self.output_file, index=False, mode='a', encoding='latin1')
         print(f"Arquivo csv salvo em: {self.output_file}")
 
