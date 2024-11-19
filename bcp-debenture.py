@@ -35,13 +35,13 @@ class DebentureProcessor:
         """
 
         weekdays = []
-        day = datetime.now()
+        current_date = datetime.now()
         while len(weekdays) < n:
-            day -= timedelta(days=1)
-            if day.weekday() < 5:
-                weekdays.append(day)
+            current_date -= timedelta(days=1)
+            if current_date.weekday() < 5:
+                weekdays.append(current_date)
             ### remover comentario abaixo e comentar linha 40 para considerar o dia atual. 
-            # day -= timedelta(days=1)  # subtrai depois de verificar
+            # current_date -= timedelta(days=1)  # subtrai depois de verificar
         return weekdays
         
 
@@ -179,5 +179,5 @@ class DebentureProcessor:
 
 if __name__ == "__main__":
     base_url = "https://www.anbima.com.br/informacoes/merc-sec-debentures/arqs/"
-    processor = DebentureProcessor(base_url)
-    processor.run(num_days=5)
+    run_algorithm = DebentureProcessor(base_url)
+    run_algorithm.run(num_days=5)
